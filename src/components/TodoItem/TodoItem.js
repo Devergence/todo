@@ -1,5 +1,6 @@
 import React from 'react';
 import { DeleteFilled } from '@ant-design/icons';
+import style from './TodoItem.module.scss';
 
 export const TodoItem = ({todo, onDone, onEdit, onRemove, error}) => {
   const { title, isDone } = todo;
@@ -22,7 +23,7 @@ export const TodoItem = ({todo, onDone, onEdit, onRemove, error}) => {
   };
 
   return (
-    <li>
+    <li className={style.list__item}>
       <input type="checkbox" onChange={toggleDone} checked={isDone}/>
       <input
         type="text"

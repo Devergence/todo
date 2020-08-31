@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
-import {TodoForm} from "./components/TodoForm";
-import {TodoList} from "./components/TodoList";
+import {TodoForm} from "./components/TodoForm/TodoForm";
+import {TodoList} from "./components/TodoList/TodoList";
 import {getItemsFromLocalStorage, saveToLocalStorage} from "./lib/helpers";
 import style from './App.module.scss';
 
@@ -43,7 +43,7 @@ export const App = () => {
   }, [todoItems]);
 
   return (
-    <div className="App">
+    <div className={style.App}>
       <h1>Todo Application</h1>
       <TodoForm onAddTodo={addTodoHandler}  error={error}/>
       <TodoList

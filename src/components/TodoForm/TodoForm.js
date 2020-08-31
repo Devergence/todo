@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import style from './TodoForm.module.scss';
 
 export const TodoForm = ({ onAddTodo, error }) => {
   const [text, setText] = useState('');
@@ -12,7 +13,7 @@ export const TodoForm = ({ onAddTodo, error }) => {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className={style.form}>
         <input type="text"
                placeholder='Add todo'
                onChange={e => setText(e.target.value)} value={text}/>

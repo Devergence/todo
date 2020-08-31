@@ -1,0 +1,12 @@
+.list__item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input[type="text"] {
+    width: calc(100% - 50px);
+    border: none;
+  }
+
+}
