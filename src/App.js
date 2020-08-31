@@ -2,10 +2,11 @@ import React, {useCallback, useState} from 'react';
 import {TodoForm} from "./components/TodoForm";
 import {TodoList} from "./components/TodoList";
 import {getItemsFromLocalStorage, saveToLocalStorage} from "./lib/helpers";
-
+import style from './App.module.scss';
 
 export const App = () => {
   const [todoItems, setTodoItems] = useState(getItemsFromLocalStorage('todo') || []);
+  const [error, setError] = useState(null);
 
   const addTodoHandler = todo => {
     const newTodoItems = [
@@ -43,9 +44,14 @@ export const App = () => {
 
   return (
     <div className="App">
-      <h1>ToDo Application</h1>
-      <TodoForm onAddTodo={addTodoHandler}/>
-      <TodoList items={todoItems} onRemove={removeHandler} onDone={doneHandler} onEdit={editHandler}/>
+      <h1>Todo Application</h1>
+      <TodoForm onAddTodo={addTodoHandler}  error={error}/>
+      <TodoList
+        items={todoItems}
+        onRemove={removeHandler}
+        onDone={doneHandler}
+        onEdit={editHandler}
+        setError={setError}/>
     </div>
   );
 }
